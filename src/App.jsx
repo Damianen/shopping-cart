@@ -29,7 +29,7 @@ function App() {
       </nav>
       <main>
         {page === 'home' ? 
-        <Home /> : page === 'shop' ? 
+        <Home/> : page === 'shop' ? 
         <Shop addToCart={addToCart}/> :
         <Cart items={cart} removeFromCart={removeFromCart}/>}
       </main>

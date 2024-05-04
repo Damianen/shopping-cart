@@ -1,8 +1,10 @@
+import "./Home.css"
+
 function Home() {
     return (
-        <>
-            Home!
-        </>
+        <div>
+            <h1 className="title">Welcome To My Store</h1>
+        </div>
     );
 }
 
