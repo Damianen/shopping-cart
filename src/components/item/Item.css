@@ -1,0 +1,29 @@
+.item-container {
+    background-color: white;
+    width: 200px;
+    border: solid 2px #94b7df;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.item-title {
+    margin-top: 10px;
+}
+
+.item-add {
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #5D87B7;
+    height: 30px;
+    width: 100px;
+    transition: box-shadow ease 0.2s;
+}
+
+.item-add:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #878789;
+}

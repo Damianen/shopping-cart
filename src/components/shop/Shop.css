@@ -1,0 +1,28 @@
+.items-container {
+    margin: 50px auto;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(4, 224px);
+    gap: 20px;
+}
+
+@media (max-width: 1100px) {
+    .items-container {
+        max-width: 720px;
+        grid-template-columns: repeat(3, 224px);
+    }
+}
+
+@media (max-width: 750px) {
+    .items-container {
+        max-width: 480px;
+        grid-template-columns: repeat(2, 224px);
+    }
+}
+
+@media (max-width: 500px) {
+    .items-container {
+        max-width: 240px;
+        grid-template-columns: repeat(1, 224px);
+    }
+}
