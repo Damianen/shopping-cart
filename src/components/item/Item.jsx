@@ -1,14 +1,23 @@
 import "./Item.css";
+import PropTypes from 'prop-types';
 
-function Item() {
+function Item({item, cartFunc, cart}) {
     return (
         <div className="item-container">
-            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" height={200}/>
-            <p className="item-title">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
-            <p className="item-price">$109.95</p>
-            <button className="item-add">Add to Cart</button>
+            <div className="img-container">   
+                <img src={item.image} width={130}/>
+            </div>
+            <p className="item-title">{item.title}</p>
+            <p className="item-price">${item.price}</p>
+            <button className="item-add" onClick={() => cartFunc(item)}>{cart ? 'Remove From' : 'Add To'} Cart</button>
         </div>
     );
+}
+
+Item.PropTypes = {
+    item: PropTypes.object.isRequired,
+    addToCart: PropTypes.func.isRequired,
+    cart: PropTypes.bool.isRequired
 }
 
 export default Item;

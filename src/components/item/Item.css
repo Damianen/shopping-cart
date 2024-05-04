@@ -27,3 +27,13 @@
     cursor: pointer;
     box-shadow: 5px 5px 10px #878789;
 }
+
+.img-container {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

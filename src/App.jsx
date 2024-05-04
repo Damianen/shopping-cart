@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
 import githubLogo from "./assets/github-logo.svg";
@@ -9,35 +8,30 @@ import Home from "./components/home/Home";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [page, setPage] = useState('home');
 
   const addToCart = (item) => {
     setCart([...cart, item]);
   }
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />
-    },
-    {
-      path: "/shop",
-      element: <Shop addToCart={addToCart}/>
-    },
-    {
-      path: "/cart",
-      element: <Cart cart={cart}/>
-    }
-  ]);
+  const removeFromCart = (item) => {
+    let arr = cart;
+    arr.splice(cart.indexOf(item), 1);
+    setCart([...arr]);
+  }
 
   return (
     <>
       <nav>
-        <a href="/"><button>Home</button></a>
-        <a href="shop"><button>Shop</button></a>
-        <a href="cart"><button>Cart</button></a>
+        <button onClick={() => setPage('home')}>Home</button>
+        <button onClick={() => setPage('shop')}>Shop</button>
+        <button onClick={() => setPage('cart')}>Cart {cart.length ? '(' + cart.length + ')' : ''}</button>
       </nav>
       <main>
-        <RouterProvider router={router} />
+        {page === 'home' ? 
+        <Home /> : page === 'shop' ? 
+        <Shop addToCart={addToCart}/> :
+        <Cart items={cart} removeFromCart={removeFromCart}/>}
       </main>
       <footer>
         <p>Copyright © Damian Buskens </p>

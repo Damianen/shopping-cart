@@ -1,15 +1,22 @@
+import PropTypes from 'prop-types';
+
 import "../shop/Shop.css"
 import Item from "../item/Item";
 
-function Cart() {
-    const items = [1,2,3,4,5,6,7,8,9,10];
+function Cart({items, removeFromCart}) {
+    
     return (
         <div className="items-container"> 
-            {items.map((item) => {
-                return <Item key={item}/>;
-            })}
+            {items.length != 0 ? 
+                items.map((item) => <Item key={items.indexOf(item)} item={item} cart={true} cartFunc={removeFromCart}/>) : 
+                "Cart is empty"}
         </div>
     );
+}
+
+Cart.PropTypes = {
+    items: PropTypes.array.isRequired,
+    removeFromCart: PropTypes.func.isRequired
 }
 
 export default Cart;
